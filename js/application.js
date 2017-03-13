@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+// price hash
 var priceLookup = {
 	lodging: {
 		low: 30,
