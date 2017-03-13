@@ -6,6 +6,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Pacifico|Quicksand" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script type="text/javascript" src="js/flightJSON.js"></script>
 	<script type="text/javascript" src="js/application.js"></script>
 </head>
 
@@ -24,7 +25,7 @@
 <tr><td><label>Return</label></td><td><input id="return-input" name="return" type="date"></td></tr>
 <tr>
 	<td><label>From (airport)</label></td>
-	<td><select>
+	<td><select id="airport-dropdown">
 		<option value="sfo">SFO</option>
   		<option value="oak">OAK</option>
 	</select></td>

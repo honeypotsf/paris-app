@@ -79,6 +79,41 @@ function showErrorMsg() {
 	$('#homepage-submit').prepend('<p id="error-msg">Whoa there, looks like you skipped something...</p>');
 }
 
+function checkFlights() {
+	var airport = $('#airport-dropdown').val();
+	// $.ajax({
+	// 	url: 'https://www.googleapis.com/qpxExpress/v1/trips/search?key=yourApiKey',
+	// 	type: 'post',
+	// 	data: JSON.stringify({
+	// 	  "request": {
+	// 	    "slice": [
+	// 	      {
+	// 	        "origin": "SFO",
+	// 	        "destination": "CDG",
+	// 	        "date": "2017-03-12"
+	// 	      }
+	// 	    ],
+	// 	    "passengers": {
+	// 	      "adultCount": 1
+	// 	    },
+	// 	    "solutions": 20,
+	// 	    "refundable": false
+	// 	  }
+	// 	}),
+	// 	dataType: 'json',
+	// 	headers: {
+	// 		'Content-Type': 'application/json'
+	// 	},
+	// 	success: function (data) {
+	// 		console.log(data);
+	// 	},
+	// 	error: function(err) {
+	// 		console.log(err);
+	// 	}
+	// })
+	console.log(airport, flightJSON)
+}
+
 function checkValues(values) {
 	var soFar = (values.lodgingPrice + values.foodPrice + values.transpoPrice) * values.tripDurationInDays * values.travelersValue;
 	var canDo = soFar < values.budgetValue;
@@ -110,7 +145,8 @@ function checkValues(values) {
 
 $('#homepage-submit').click(function () {
 	var valuesObject = getValues();
-	checkValues(valuesObject);
+	// checkValues(valuesObject);
+	checkFlights();
 });
 
 
