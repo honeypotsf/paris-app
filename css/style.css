@@ -1,0 +1,132 @@
+/* Stylesheet for Take Me to Paris! */
+
+* {
+	box-sizing: border-box;
+}
+
+.hide {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+body {
+	color: #404040;
+	font-family: "Quicksand", sans-serif;
+	margin: 0;
+}
+
+a { 
+	color: #F97D68; 
+}
+
+tr {
+	height: 40px;
+	vertical-align: middle;
+}
+
+input {
+	padding: 5px;
+	border-radius: 3px;
+}
+
+input[type="date" i], 
+input[type="datetime-local" i], 
+input[type="month" i], 
+input[type="time" i], 
+input[type="week" i] {
+	font-family: "Quicksand", sans-serif;
+	font-size: 12px;
+}
+
+input[type="submit"] {
+	width: 100%;
+	background-color: #d81d0e;
+	border-style: none;
+}
+
+.button {
+	border-radius: 3px;
+	color: #FFF;
+	font-size: 16px;
+	text-transform: uppercase;
+	padding: 14px 20px;
+}
+
+header {
+	background-color: #254f72;
+	clear: both;
+	text-align: center;
+	padding: 10px;
+}
+
+main {
+	max-width: 320px;
+	margin: 0 auto;
+}
+
+
+
+/* Logo */
+
+h1#logo {
+	margin: 0;
+}
+
+#logo a {
+	color: #FFF;
+	font-family: "Pacifico", cursive;
+	font-size: 22px;
+	font-weight: 400;
+	text-decoration: none;
+	/*display: block;
+	margin-top: 0;
+	text-indent: -9999px;
+	background: url("images/vocabnote-logo.png") no-repeat;
+	background-size: 160px;
+	background-position: 50% 50%;*/
+}
+
+h2 {
+	color: #d81d0e;
+	text-align: center;
+	font-size: 28px;
+}
+
+
+#homepage-submit {
+	margin-top: 20px;
+}
+
+#error-msg {
+	color: #d81d0e;
+	font-size: 14px;
+	font-style: italic;
+	text-align: center;
+}
+
+#results-blurb p {
+
+}
+
+#results-blurb ul {
+	padding-left: 0;
+}
+
+#results-blurb li {
+	list-style: none;
+}
+
+
+/* Media Queries */
+
+
+
+
+
+
+
+
+
