@@ -81,30 +81,32 @@ $(document).ready(function() {
 
 	function checkFlights() {
 		var airport = $('#airport-dropdown').val();
-		return $.ajax({
-			url: 'https://www.googleapis.com/qpxExpress/v1/trips/search?key=yourApiKey',
-			type: 'post',
-			data: JSON.stringify({
-			  "request": {
-			    "slice": [
-			      {
-			        "origin": airport.toUpperCase(),
-			        "destination": "CDG",
-			        "date": "2017-03-12"
-			      }
-			    ],
-			    "passengers": {
-			      "adultCount": 1
-			    },
-			    "solutions": 20,
-			    "refundable": false
-			  }
-			}),
-			dataType: 'json',
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		})
+		// return $.ajax({
+		// 	url: 'https://www.googleapis.com/qpxExpress/v1/trips/search?key=yourApiKey',
+		// 	type: 'post',
+		// 	data: JSON.stringify({
+		// 	  "request": {
+		// 	    "slice": [
+		// 	      {
+		// 	        "origin": airport.toUpperCase(),
+		// 	        "destination": "CDG",
+		// 	        "date": "2017-03-12"
+		// 	      }
+		// 	    ],
+		// 	    "passengers": {
+		// 	      "adultCount": 1
+		// 	    },
+		// 	    "solutions": 20,
+		// 	    "refundable": false
+		// 	  }
+		// 	}),
+		// 	dataType: 'json',
+		// 	headers: {
+		// 		'Content-Type': 'application/json'
+		// 	}
+		// })
+    var deferred = $.Deferred();
+    return deferred.resolve(flightJSON)
 	}
 
 	function checkValues(values) {
