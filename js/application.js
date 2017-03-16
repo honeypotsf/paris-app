@@ -18,11 +18,26 @@ $(document).ready(function() {
 		}	
 	};
 
+	function checkInputs() {
+		if (values.startDateValue !== '' && values.returnDateValue !== '' && values.travelersValue !== '' && values.budgetValue !== '') {
+			showBudgetBreakdown();
+		} else {
+			if (errorMsgExists) {
+				$('#error-msg').remove();
+				showErrorMsg();
+			} else {
+				showErrorMsg();
+			}
+		}
+	}
+
 	function getValues() {
 		var startDateValue = $('#leave-input').val();
 		var startDate = new Date(startDateValue).getTime();
 		var returnDateValue = $('#return-input').val();
 		var returnDate = new Date(returnDateValue).getTime();
+
+
 
 		var tripDurationInDays = (returnDate - startDate) / (60000 * 60 * 24);
 		var travelersValue = $('#travelers-input').val();
@@ -104,21 +119,10 @@ $(document).ready(function() {
 					$('#results-blurb').append('<p>Here\'s your Budget Breakdown:</p><ul><li><span class="breakdown-info"><span class="breakdown-label">Flight</span><span class="breakdown-value"> = $' + flightPrice + '</span></span><span class="button book-button">Book Now</span></li><li><span class="breakdown-info"><span class="breakdown-label">Lodging</span><span class="breakdown-value"> = $' + values.lodgingPrice + '/day</span></span></li><li><span class="breakdown-info"><span class="breakdown-label">Food</span><span class="breakdown-value"> = $' + values.foodPrice + '/day</span></span></li><li><span class="breakdown-info"><span class="breakdown-label">Transportation</span><span class="breakdown-value"> = $' + values.transpoPrice + '/day</span></span></li></ul>');
 				}
 				else {
-					$('#results-blurb').append('<h2>Sorry, Paris isn\'t such a good idea right now.</h2><p>You\'ll need at least $' + soFar + ' to cover your expenses.</p>');
+					$('#results-blurb').append('<h2>Sorry, Paris isn\'t such a good idea right now.</h2><p>You\'ll need at least $' + (soFar + flightPrice) + ' to cover your expenses.</p>');
 					$('#try-again').removeClass('hide');
 				}
 			});
-		}
-
-		if (values.startDateValue !== '' && values.returnDateValue !== '' && values.travelersValue !== '' && values.budgetValue !== '') {
-			showBudgetBreakdown();
-		} else {
-			if (errorMsgExists) {
-				$('#error-msg').remove();
-				showErrorMsg();
-			} else {
-				showErrorMsg();
-			}
 		}
 	} 
 
@@ -139,12 +143,14 @@ $(document).ready(function() {
 
 Questions:
 
-Not getting flightPrice? not defined
+Not getting flightPrice? not defined  - ok 
 Explain flightPrice = parseInt() line
 
-How to prevent from entering Return Date that is before Leave Date?
+How to prevent from entering Return Date that is before Leave Date? - ok
 
-How to prevent non-numbers being entered in Budget?
+How to prevent non-numbers being entered in Budget? - validation library
+
+Try Higher Budget - how to save inputs from last time?
 
 */
 
