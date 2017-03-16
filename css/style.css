@@ -120,6 +120,7 @@ main {
 
 h1#logo {
 	margin: 0;
+	padding: 2px;
 }
 
 #logo a {
