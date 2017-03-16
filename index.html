@@ -13,7 +13,7 @@
 <body class="home">
 
 <header>
-<h1 id="logo"><a href="index.html">Take Me to Paris!</a></h1>
+<h1 id="logo"><a href="index.html">Take Me to Paris</a></h1>
 </header>
 
 <main>
@@ -21,24 +21,24 @@
 <section id="inputs">
 <h2>Is Paris a good idea?</h2>
 <table>
-<tr><td><label>Leave</label></td><td><input id="leave-input" name="leave" type="date" autofocus></td></tr>
-<tr><td><label>Return</label></td><td><input id="return-input" name="return" type="date"></td></tr>
+<tr><td><label>Leave Date</label></td><td><input id="leave-input" name="leave" type="date" autofocus></td></tr>
+<tr><td><label>Return Date</label></td><td><input id="return-input" name="return" type="date"></td></tr>
 <tr>
-	<td><label>From (airport)</label></td>
+	<td><label>Fly from</label></td>
 	<td><select id="airport-dropdown">
 		<option value="sfo">SFO</option>
   		<option value="oak">OAK</option>
 	</select></td>
 </tr>
-<tr><td><label>Travelers (how many?)</label></td><td><input id="travelers-input" name="travelers" type="number"></td></tr>
-<tr><td><label>Budget (USD)</label></td><td><input id="budget-input" name="budget" type="number"></td></tr>
+<tr><td><label># Travelers</label></td><td><input id="travelers-input" name="travelers" type="number"></td></tr>
+<tr><td><label>Your budget</label></td><td><input id="budget-input" name="budget" type="number" placeholder="USD"></td></tr>
 <tr>
 	<td><label>Lodging</label></td>
 	<td>
 		<select id="lodging-dropdown">
-			<option value="low">$</option>
-	  		<option value="med">$$</option>
-	  		<option value="high">$$$</option>
+			<option value="low">cheap</option>
+	  		<option value="med">goldilocks</option>
+	  		<option value="high">fancy</option>
 		</select>
 	</td>
 </tr>
@@ -46,9 +46,9 @@
 	<td><label>Food</label></td>
 	<td>
 		<select id="food-dropdown">
-			<option value="low">$</option>
-	  		<option value="med">$$</option>
-	  		<option value="high">$$$</option>
+			<option value="low">cheap</option>
+	  		<option value="med">goldilocks</option>
+	  		<option value="high">fancy</option>
 		</select>
 	</td>
 </tr>
@@ -56,9 +56,9 @@
 	<td><label>Transportation</label></td>
 	<td>
 		<select id="transpo-dropdown">
-			<option value="low">$</option>
-	  		<option value="med">$$</option>
-	  		<option value="high">$$$</option>
+			<option value="low">cheap</option>
+	  		<option value="med">goldilocks</option>
+	  		<option value="high">fancy</option>
 		</select>
 	</td>
 </tr>
@@ -66,15 +66,17 @@
 </section>
 
 <section id="homepage-submit">
-	<input class="button" type="submit" value="Let's find out" style="cursor:pointer">
+	<input class="button" type="submit" value="Find Out" style="cursor:pointer">
 </section>
 
 <section id="results" class="hide">
-	<!-- <p>Results should appear here.</p> -->
 	<section id="results-blurb"></section>
 	<section id="results-details"></section>
+</section> 
 
-</section> <!-- End results -->
+<section id="try-again" class="hide">
+	<input class="button" type="submit" value="Try higher budget" style="cursor:pointer">
+</section>
 
 </main>
 

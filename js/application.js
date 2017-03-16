@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-	// price hash
 	var priceLookup = {
 		lodging: {
 			low: 30,
@@ -54,57 +53,41 @@ $(document).ready(function() {
 		$('#homepage-submit').fadeOut('slow');
 		$('#inputs').fadeOut('slow');
 		$('#results').removeClass('hide');
-	}	
-
-	// function flagErrors {
-	// 	for ()
-	// }
-
-	// function createErrorMsg() {
-	// 	var travelersLabel = document.getElementById('travelers-input');
-	// 	var budgetLabel = document.getElementById('budget-input');
-	// 	if (values.travelersValue == '' && values.budgetValue == '') {
-	// 		$('#error-msg').append('<span>Number of travelers, Budget</span>');
-	// 	} else if (values.travelersValue !== '' && values.budgetValue == '') {
-	// 		$('#error-msg').append('<span>Budget</span>');
-	// 	} else if (values.travelersValue == '' && values.budgetValue !== '') {
-	// 		$('#error-msg').append('<span>Number of travelers</span>');
-	// 	}
-	// }
-	// var errorMsg = createErrorMsg();
+	}
 
 	function showErrorMsg() {
 
-		// var labelList = // look for the things for which value == '', then get the contents of the label element
 		$('#homepage-submit').prepend('<p id="error-msg">Whoa there, looks like you skipped something...</p>');
 	}
 
 	function checkFlights() {
 		var airport = $('#airport-dropdown').val();
-		return $.ajax({
-			url: 'https://www.googleapis.com/qpxExpress/v1/trips/search?key=yourApiKey',
-			type: 'post',
-			data: JSON.stringify({
-			  "request": {
-			    "slice": [
-			      {
-			        "origin": airport.toUpperCase(),
-			        "destination": "CDG",
-			        "date": "2017-03-12"
-			      }
-			    ],
-			    "passengers": {
-			      "adultCount": 1
-			    },
-			    "solutions": 20,
-			    "refundable": false
-			  }
-			}),
-			dataType: 'json',
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		})
+		// return $.ajax({
+		// 	url: 'https://www.googleapis.com/qpxExpress/v1/trips/search?key=yourApiKey',
+		// 	type: 'post',
+		// 	data: JSON.stringify({
+		// 	  "request": {
+		// 	    "slice": [
+		// 	      {
+		// 	        "origin": airport.toUpperCase(),
+		// 	        "destination": "CDG",
+		// 	        "date": "2017-03-12"
+		// 	      }
+		// 	    ],
+		// 	    "passengers": {
+		// 	      "adultCount": 1
+		// 	    },
+		// 	    "solutions": 20,
+		// 	    "refundable": false
+		// 	  }
+		// 	}),
+		// 	dataType: 'json',
+		// 	headers: {
+		// 		'Content-Type': 'application/json'
+		// 	}
+		// })
+ 		var deferred = $.Deferred();
+    	return deferred.resolve(flightJSON)
 	}
 
 	function checkValues(values) {
@@ -118,10 +101,11 @@ $(document).ready(function() {
 				fakeRefresh();
 				if (soFar + flightPrice < values.budgetValue) {
 					$('#results-blurb').append('<h2>Yes, Paris is indeed a good idea!</h2>');
-					$('#results-blurb').append('<p>Here\'s your Budget Breakdown:</p><ul><li>Lodging: $' + values.lodgingPrice + ' /day</li><li>Food: $' + values.foodPrice + ' /day</li><li>Transportation: $' + values.transpoPrice + ' /day</li><li>Flight $' + flightPrice + '</li></ul>');
+					$('#results-blurb').append('<p>Here\'s your Budget Breakdown:</p><ul><li><span class="breakdown-info"><span class="breakdown-label">Flight</span><span class="breakdown-value"> = $' + flightPrice + '</span></span><span class="button book-button">Book Now</span></li><li><span class="breakdown-info"><span class="breakdown-label">Lodging</span><span class="breakdown-value"> = $' + values.lodgingPrice + '/day</span></span></li><li><span class="breakdown-info"><span class="breakdown-label">Food</span><span class="breakdown-value"> = $' + values.foodPrice + '/day</span></span></li><li><span class="breakdown-info"><span class="breakdown-label">Transportation</span><span class="breakdown-value"> = $' + values.transpoPrice + '/day</span></span></li></ul>');
 				}
 				else {
 					$('#results-blurb').append('<h2>Sorry, Paris isn\'t such a good idea right now.</h2><p>You\'ll need at least $' + soFar + ' to cover your expenses.</p>');
+					$('#try-again').removeClass('hide');
 				}
 			});
 		}
@@ -143,11 +127,26 @@ $(document).ready(function() {
 		checkValues(valuesObject);
 	});
 
-
+	$('#try-again').click(function () {
+		location.reload();
+	});
 
 
 });
 
+
+/*
+
+Questions:
+
+Not getting flightPrice? not defined
+Explain flightPrice = parseInt() line
+
+How to prevent from entering Return Date that is before Leave Date?
+
+How to prevent non-numbers being entered in Budget?
+
+*/
 
 
 

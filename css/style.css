@@ -13,9 +13,13 @@
 }
 
 body {
+	background-color: #EFEFEF;
+	background: url('images/debutlight_@2X.png');
+	background-size: 200px 200px;
 	color: #404040;
 	font-family: "Quicksand", sans-serif;
 	margin: 0;
+	font-size: 18px;
 }
 
 a { 
@@ -23,13 +27,44 @@ a {
 }
 
 tr {
-	height: 40px;
+	height: 60px;
 	vertical-align: middle;
 }
 
-input {
-	padding: 5px;
+td {
+	width: 50%;
+}
+
+select {
+	width: 100%;
+	height: 44px;
 	border-radius: 3px;
+	border: #EFEFEF;
+	background: #ffffff; /* Old browsers */
+	/*background: -moz-linear-gradient(top, #ffffff 0%, #efefef 65%, #e5e5e5 100%); /* FF3.6-15 */*/
+	/*background: -webkit-linear-gradient(top, #ffffff 0%,#efefef 65%,#e5e5e5 100%); /* Chrome10-25,Safari5.1-6 */*/
+	/*background: linear-gradient(to bottom, #ffffff 0%,#efefef 65%,#e5e5e5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */*/
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */*/
+	-webkit-box-shadow: 1px 1px 1px 0px rgba(17,17,17,0.25);
+	-moz-box-shadow: 1px 1px 1px 0px rgba(17,17,17,0.25);
+	box-shadow: 1px 1px 1px 0px rgba(17,17,17,0.25);
+}
+
+input {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	border-radius: 3px;
+	box-shadow: none;
+	border: 1px solid #FFF;
+	width: 100%;
+	height: 44px;
+	line-height: 44px;
+	padding: 0 10px;
+	box-shadow: inset 1px 1px 2px 0 #909090;
+}
+
+input#budget-input {
+
 }
 
 input[type="date" i], 
@@ -43,16 +78,25 @@ input[type="week" i] {
 
 input[type="submit"] {
 	width: 100%;
-	background-color: #d81d0e;
+	border: none;
 	border-style: none;
+	box-shadow: none;
 }
 
 .button {
+	display: block;
 	border-radius: 3px;
 	color: #FFF;
+	background: #f2130c; /* Old browsers */
+	background: -moz-linear-gradient(top, #f2130c 0%, #e51a10 36%, #d8190f 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #f2130c 0%,#e51a10 36%,#d8190f 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #f2130c 0%,#e51a10 36%,#d8190f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2130c', endColorstr='#d8190f',GradientType=0 ); /* IE6-9 */
 	font-size: 16px;
 	text-transform: uppercase;
-	padding: 14px 20px;
+	height: 50px;
+	line-height: 50px;
+	padding: 0;
 }
 
 header {
@@ -60,6 +104,9 @@ header {
 	clear: both;
 	text-align: center;
 	padding: 10px;
+	-webkit-box-shadow: 0px 1px 1px 0px rgba(17,17,17,0.25);
+	-moz-box-shadow: 0px 1px 1px 0px rgba(17,17,17,0.25);
+	box-shadow: 0px 1px 1px 0px rgba(17,17,17,0.25);
 }
 
 main {
@@ -76,25 +123,25 @@ h1#logo {
 }
 
 #logo a {
-	color: #FFF;
+	color: #254f72;
 	font-family: "Pacifico", cursive;
 	font-size: 22px;
 	font-weight: 400;
 	text-decoration: none;
+	text-shadow: 0 1px 1px #FFF; 
 	/*display: block;
 	margin-top: 0;
 	text-indent: -9999px;
-	background: url("images/vocabnote-logo.png") no-repeat;
+	background: url("images/logo.png") no-repeat;
 	background-size: 160px;
 	background-position: 50% 50%;*/
 }
 
 h2 {
 	color: #d81d0e;
-	text-align: center;
 	font-size: 28px;
+	text-align: center;
 }
-
 
 #homepage-submit {
 	margin-top: 20px;
@@ -108,7 +155,8 @@ h2 {
 }
 
 #results-blurb p {
-
+	line-height: 160%;
+	text-align: center;
 }
 
 #results-blurb ul {
@@ -116,7 +164,28 @@ h2 {
 }
 
 #results-blurb li {
+	text-align: center;
 	list-style: none;
+	margin-bottom: 20px;
+	overflow: auto;
+	background-color: #FFF;
+	-webkit-box-shadow: 1px 1px 1px 0px rgba(17,17,17,0.25);
+	-moz-box-shadow: 1px 1px 1px 0px rgba(17,17,17,0.25);
+	box-shadow: 1px 1px 1px 0px rgba(17,17,17,0.25);
+}
+
+.breakdown-info {
+	display: block;
+	padding: 20px 10px;
+}
+
+.breakdown-label {
+	font-family: "Pacifico", cursive;
+	font-size: 20px;
+}
+
+.book-button {
+	margin: 0 20px 20px;
 }
 
 
